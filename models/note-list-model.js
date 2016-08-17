@@ -4,13 +4,13 @@
     }
 
     NoteList.prototype.store = function (note) {
-      this.listArr.push(note);
+      this.listArr.push(new Note(note));
     }
 
     NoteList.prototype.list = function () {
       return this.listArr;
     }
 
-    module.exports = NoteList;
+    exports.NoteList = NoteList;
 
 })(this);

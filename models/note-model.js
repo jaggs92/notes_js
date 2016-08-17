@@ -4,9 +4,9 @@
     this.save_note = text;
   }
 
-  Note.prototype.text = function () {
+  Note.prototype.showNote = function () {
     return this.save_note;
   };
 
-  module.exports = Note;
+  exports.Note = Note;
 })(this);
