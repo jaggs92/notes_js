@@ -1,6 +1,6 @@
 var notelist = new NoteList();
 
-function storesListOfNotes() {
+it('NoteList stores notes', function() {
   var noteOne = "I love ruby";
   var noteTwo = "I hate Javascript";
 
@@ -8,9 +8,7 @@ function storesListOfNotes() {
   notelist.store(noteTwo);
 
   var testList = notelist.list()
-
-  isTrue(testList[0].showNote() === noteOne);
-  isTrue(testList[1].showNote() === noteTwo);
-};
-
-storesListOfNotes();
+  var validateFirstNote = (testList[0].showNote() === noteOne)
+  var validateSecondNote = (testList[1].showNote() === noteTwo)
+  isTrue(validateFirstNote === validateSecondNote);
+});

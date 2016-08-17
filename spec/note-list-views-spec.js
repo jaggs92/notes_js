@@ -1,42 +1,35 @@
-function listIsEmpty() {
+it('ListView empty list is legal', function listIsEmpty() {
   var testList = new NoteList();
   var listView = new ListView(testList);
   var html = "<ul></ul>"
   isTrue(listView.printListHTML() === html);
-}
+});
 
-// function listHasOneNote() {
-//   var testList = new NoteList();
-//   var noteOne = "Favourite food: pesto";
-//   testList.store(noteOne);
-//   var listView = new ListView(testList);
-//   var html = "<ul><li><div>Favourite food: pesto</div></li></ul>"
-//   isTrue(listView.printListHTML() === html);
-// };
-//
-// function listHasManyNotes() {
-//   var testList = new NoteList();
-//   var noteOne = "Favourite food: pesto";
-//   var noteTwo = "Favourite drink: seltzer";
-//   testList.store(noteOne);
-//   testList.store(noteTwo);
-//   var listView = new ListView(testList);
-//   var html = "<ul><li><div>Favourite food: pesto</div></li><li><div>Favourite drink: seltzer</div></li></ul>"
-//   isTrue(listView.printListHTML() === html);
-
-// };
-
-function listShowsOnly20Chars() {
+it('ListView shows one note', function() {
   var testList = new NoteList();
-  var noteOne = "Favourite food: superlongpestoname";
+  var noteOne = "Hello";
   testList.store(noteOne);
   var listView = new ListView(testList);
-  var html = "<ul><li><div>Favourite food: supe</div></li></ul>"
+  var html = "<ul><li><div>Hello</div></li></ul>"
   isTrue(listView.printListHTML() === html);
-};
+});
 
+it('ListView shows Many Notes', function() {
+  var testList = new NoteList();
+  var noteOne = "Hello";
+  var noteTwo = "Howdy";
+  testList.store(noteOne);
+  testList.store(noteTwo);
+  var listView = new ListView(testList);
+  var html = "<ul><li><div>Hello</div></li><li><div>Howdy</div></li></ul>"
+  isTrue(listView.printListHTML() === html);
+});
 
-listIsEmpty();
-// listHasOneNote();
-// listHasManyNotes();
-listShowsOnly20Chars();
+it('ListView only shows 20 chars per note', function() {
+  var testList = new NoteList();
+  var noteOne = "This is a string that never ends";
+  testList.store(noteOne);
+  var listView = new ListView(testList);
+  var html = "<ul><li><div>This is a string tha</div></li></ul>"
+  isTrue(listView.printListHTML() === html);
+});

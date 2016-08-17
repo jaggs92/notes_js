@@ -1,4 +1,4 @@
-function canModifyHTMLonDocument () {
+it('NoteController can modify HTML on document', function(){
   var noteList = new NoteList();
   noteList.store("Favourite drink: seltzer");
   var newView = new ListView(noteList);
@@ -10,6 +10,4 @@ function canModifyHTMLonDocument () {
   noteController.insertHTML();
   isTrue(noteController._getAppDiv().innerHTML === newView.printListHTML());
 
-};
-
-canModifyHTMLonDocument();
+});
