@@ -1,7 +1,6 @@
 it('ListView empty list is legal', function listIsEmpty() {
   var testList = new NoteList();
   var listView = new ListView(testList);
-  console.log(listView.printListHTML())
   var html = "<a "
   isTrue(listView.printListHTML() === html);
 });
