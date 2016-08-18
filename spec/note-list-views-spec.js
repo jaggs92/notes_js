@@ -1,7 +1,8 @@
 it('ListView empty list is legal', function listIsEmpty() {
   var testList = new NoteList();
   var listView = new ListView(testList);
-  var html = "<ul></ul>"
+  console.log(listView.printListHTML())
+  var html = "<a "
   isTrue(listView.printListHTML() === html);
 });
 
@@ -10,8 +11,8 @@ it('ListView shows one note', function() {
   var noteOne = "Hello";
   testList.store(noteOne);
   var listView = new ListView(testList);
-  var html = "<ul><li><div>Hello</div></li></ul>"
-  isTrue(listView.printListHTML() === html);
+  var noteLink = "<a href='#4'Hello</a>";
+  isTrue(listView.printListHTML() === noteLink);
 });
 
 it('ListView shows Many Notes', function() {
@@ -21,7 +22,7 @@ it('ListView shows Many Notes', function() {
   testList.store(noteOne);
   testList.store(noteTwo);
   var listView = new ListView(testList);
-  var html = "<ul><li><div>Hello</div></li><li><div>Howdy</div></li></ul>"
+  var html = "<a href='#5'Hello</a>href='#6'Howdy</a>"
   isTrue(listView.printListHTML() === html);
 });
 
@@ -30,6 +31,6 @@ it('ListView only shows 20 chars per note', function() {
   var noteOne = "This is a string that never ends";
   testList.store(noteOne);
   var listView = new ListView(testList);
-  var html = "<ul><li><div>This is a string tha</div></li></ul>"
+  var html = "<a href='#7'This is a string tha</a>"
   isTrue(listView.printListHTML() === html);
 });

@@ -3,11 +3,12 @@ it('NoteController can modify HTML on document', function(){
   noteList.store("Favourite drink: seltzer");
   var newView = new ListView(noteList);
   var noteController = new NoteController(noteList);
-  var element = document.createElement('div', {idp: 'app'});
+  var element = document.createElement('div', {id: 'app'});
   noteController._getAppDiv = function () {
     return element;
   };
   noteController.insertHTML();
+  console.log(noteController._getAppDiv().innerHTML);
+  console.log(newView.printListHTML());
   isTrue(noteController._getAppDiv().innerHTML === newView.printListHTML());
-
 });
